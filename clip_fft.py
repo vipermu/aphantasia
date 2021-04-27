@@ -362,7 +362,8 @@ def img_from_promtp(
 
 if __name__ == "__main__":
     prompt_file_path = "prompts.txt"
-    prompt_list = []
+    with open(prompt_file_path, "r") as txt_file:
+        prompt_list = txt_file.readlines()
 
     for prompt in prompt_list:
         img_from_promtp(prompt)
