@@ -193,8 +193,14 @@ def slice_imgs(imgs, count, size=224, transform=None, overscan=False, micro=None
     return sliced
 
 
-def main():
+def img_from_promtp(
+    prompt: str,
+    steps: int = 200,
+):
     a = get_args()
+
+    a.in_txt = prompt
+    a.steps = steps
 
     prev_enc = 0
     def train(i):
@@ -354,5 +360,9 @@ def main():
     if a.save_pt is True:
         torch.save(params, '%s.pt' % os.path.join(a.out_dir, out_name))
 
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+    prompt_file_path = "prompts.txt"
+    prompt_list = []
+
+    for prompt in prompt_list:
+        img_from_promtp(prompt)

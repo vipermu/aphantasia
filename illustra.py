@@ -75,8 +75,11 @@ def load_params(file):
     if isinstance(params, list): params = params[0]
     return params.detach().clone()
 
-def main():
+def illustra_from_txt(
+    txt_file_path: str,
+):
     a = get_args()
+    a.in_txt = txt_file_path
 
     # Load CLIP models
     model_clip, _ = clip.load(a.model)
@@ -249,4 +252,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    txt_file_path = "prompts.txt"
+    illustra_from_txt()
