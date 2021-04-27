@@ -148,8 +148,6 @@ def cvshow(img):
 
 def checkout(img, fname=None, verbose=False):
     img = np.transpose(np.array(img)[:,:,:], (1,2,0))
-    if verbose is True:
-        cvshow(img)
     if fname is not None:
         img = np.clip(img*255, 0, 255).astype(np.uint8)
         imsave(fname, img)
