@@ -287,8 +287,14 @@ def slice_imgs(imgs,
     return sliced
 
 
-def main():
+def img_from_promtp(
+    prompt: str,
+    steps: int = 200,
+):
     a = get_args()
+
+    a.in_txt = prompt
+    a.steps = steps
 
     prev_enc = 0
 
